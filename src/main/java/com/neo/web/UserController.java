@@ -1,5 +1,6 @@
 package com.neo.web;
 
+import com.neo.goodskill.service.SkillService;
 import com.neo.mapper.UserMapper;
 import com.neo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserMapper userMapper;
-
     @RequestMapping("/getUsers")
     public List<User> getUsers() {
         List<User> users=userMapper.getAll();
