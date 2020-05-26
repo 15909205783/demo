@@ -20,13 +20,15 @@ public class Arthas {
 
     public static void main(String[] args) {
         // 模拟 CPU 过高
-         cpu();
-        // 模拟线程阻塞
+//         cpu();
+//         模拟线程阻塞
 //        thread();
         // 模拟线程死锁
 //        deadThread();
         // 不断的向 hashSet 集合增加数据
-//        addHashSetThread();
+        addHashSetThread();
+//        deadThread();
+
     }
 
     /**
