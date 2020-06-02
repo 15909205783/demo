@@ -34,6 +34,6 @@ public class TestCache {
         logger.info("第二次请求时间:" + (end - ing) + "ms");
 
         Assert.assertNotNull(users);
-        logger.debug(JSON.toJSONString(users));
+        logger.info(JSON.toJSONString(users));
     }
 }
