@@ -2,6 +2,7 @@ package com.neo.mapper;
 
 import com.alibaba.fastjson.JSON;
 import com.neo.model.User;
+import com.neo.service.UserMapperService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,13 +22,13 @@ public class TestCache {
     @Autowired
     private RedisTemplate redisTemplate;
     @Autowired
-    private UserMapper userMapper;
+    private UserMapperService userService;
     @Test
     public void testCache() {
         long begin = System.currentTimeMillis();
-        List<User> users = userMapper.getAll();
+        List<User> users = userService.getAll();
         long ing = System.currentTimeMillis();
-        userMapper.getAll();
+        userService.getAll();
         long end = System.currentTimeMillis();
         logger.info("第一次请求时间：" + (ing - begin) + "ms");
         logger.info("第二次请求时间:" + (end - ing) + "ms");

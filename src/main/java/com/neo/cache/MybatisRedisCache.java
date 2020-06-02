@@ -1,7 +1,7 @@
 package com.neo.cache;
 
 
-import com.neo.util.SpringContextHolder;
+import com.neo.autil.SpringContextHolder;
 import org.apache.ibatis.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

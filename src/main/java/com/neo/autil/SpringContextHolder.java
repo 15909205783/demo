@@ -1,4 +1,4 @@
-package com.neo.util;
+package com.neo.autil;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

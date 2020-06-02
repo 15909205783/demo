@@ -4,6 +4,6 @@ import com.neo.model.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserMapperService {
     List<User> getAll();
 }
