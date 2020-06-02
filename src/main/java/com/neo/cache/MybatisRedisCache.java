@@ -1,10 +1,13 @@
 package com.neo.cache;
 
 
-import com.neo.service.SpringContextHolder;
+import com.neo.util.SpringContextHolder;
 import org.apache.ibatis.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
@@ -60,16 +63,34 @@ public class MybatisRedisCache implements Cache {
 
     @Override
     public void clear() {
-
+        log.debug("从缓存区删除所有数据");
+        redisTemplate.execute(new RedisCallback() {
+            @Override
+            public Object doInRedis(RedisConnection redisConnection) throws DataAccessException {
+                redisConnection.flushAll();
+                return null;
+            }
+        });
     }
 
     @Override
     public int getSize() {
-        return 0;
+        int size = (int) redisTemplate.execute(new RedisCallback() {
+            @Override
+            public Object doInRedis(RedisConnection redisConnection) throws DataAccessException {
+                return redisConnection.dbSize();
+            }
+        });
+        return size;
     }
 
     @Override
     public ReadWriteLock getReadWriteLock() {
-        return null;
+
+        return readWriteLock;
+    }
+
+    public void setTimeout() {
+        this.timeout = timeout;
     }
 }

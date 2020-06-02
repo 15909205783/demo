@@ -1,6 +1,5 @@
 package com.neo.web;
 
-import com.neo.goodskill.service.SkillService;
 import com.neo.mapper.UserMapper;
 import com.neo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
