@@ -1,8 +1,11 @@
 package com.neo.springbean;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 
-public class Student implements BeanNameAware {
+public class Student implements BeanNameAware,BeanFactoryAware {
     private String name;
     //无参构造方法
     public Student() {
@@ -44,6 +47,12 @@ public class Student implements BeanNameAware {
     //传递Bean的ID。
     @Override
     public void setBeanName(String name) {
-        System.out.println("调用BeanNameAware的setBeanName()..." );
+        System.out.println("调用BeanNameAware的setBeanName()..."+name );
+        this.name = name;
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+
     }
 }
