@@ -19,10 +19,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
         <!-- Spring Boot web 开发整合 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -88,8 +84,6 @@
             <artifactId>mybatis-ehcache</artifactId>
             <version>1.0.0</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
