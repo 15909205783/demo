@@ -3,7 +3,7 @@ package com.neo.thread.thread;
 public class SynchronizedTest {
     static Test t1 = new Test();
     public static void main(String[] args) {
-//https://www.cnblogs.com/qdhxhz/p/10267932.html
+//https://www.cnblogs.com/qdhxhz/p/10267932.html3
         new Thread(new Runnable() {
             @Override
             public void run() {
