@@ -1,0 +1,8 @@
+mybatis是如何处理数据源的
+org.apache.ibatis.session.SqlSessionFactoryBuilder#build(java.io.InputStream)
+      》org.apache.ibatis.builder.xml.XMLConfigBuilder#parse
+           》org.apache.ibatis.builder.xml.XMLConfigBuilder#environmentsElement
+	  》org.apache.ibatis.builder.xml.XMLConfigBuilder#dataSourceElement
+	      》org.apache.ibatis.datasource.DataSourceFactory#getDataSource//拿到数据库源
+	          》org.apache.ibatis.session.Configuration#setEnvironment设置环境变量
+总结:去解析xml文件内容给到java对象Configuration#setEnvironment
