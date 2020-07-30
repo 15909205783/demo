@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- init-method：指定初始化的方法
          destroy-method：指定销毁的方法 -->
-    <bean id="book" class="com.neo.springbean.Book" init-method="springPostConstruct" destroy-method="springPreDestory" >
+    <context:component-scan base-package="com.neo.springbean"/>
+    <!--<bean id="book" class="com.neo.springbean.Book" init-method="springPostConstruct" destroy-method="springPreDestory">
         <property name="bookName" value="thingking in java"></property>
     </bean>
-    <!--配置bean的后置处理器-->
-    <bean class="com.neo.springbean.MyBeanPostProcessor"/>
+    &lt;!&ndash;配置bean的后置处理器&ndash;&gt;
+    <bean class="com.neo.springbean.MyBeanPostProcessor"/>-->
 </beans>
