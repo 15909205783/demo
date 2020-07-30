@@ -4,9 +4,10 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
-
-public class Book implements BeanNameAware,BeanFactoryAware,ApplicationContextAware,InitializingBean, DisposableBean {
+@Component
+public class Book  {
 
     private String bookName;
 
@@ -14,30 +15,7 @@ public class Book implements BeanNameAware,BeanFactoryAware,ApplicationContextAw
         System.out.println("Book Initializing ");
     }
 
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("Book.destory invoke");
-    }
 
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("Book.setBeanFactory invoke");
-    }
-
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("Book.setBeanName invoke");
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Book.afterPropertiesSet invoke");
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("Book.setApplicationContext invoke");
-    }
 
     public String getBookName() {
         return bookName;

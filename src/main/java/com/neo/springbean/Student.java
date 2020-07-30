@@ -1,18 +1,23 @@
 package com.neo.springbean;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class Student implements BeanNameAware,BeanFactoryAware {
+@Component
+public class Student {
+    @Autowired
+    Student student;
+
     private String name;
+
     //无参构造方法
     public Student() {
-        super();
+        System.out.println("student initialized");
     }
 
-    /** 设置对象属性
+    /**
+     * 设置对象属性
+     *
      * @param name the name to set
      */
     public void setName(String name) {
@@ -45,14 +50,4 @@ public class Student implements BeanNameAware,BeanFactoryAware {
 
     //调用BeanNameAware的setBeanName()
     //传递Bean的ID。
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("调用BeanNameAware的setBeanName()..."+name );
-        this.name = name;
-    }
-
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-
-    }
 }

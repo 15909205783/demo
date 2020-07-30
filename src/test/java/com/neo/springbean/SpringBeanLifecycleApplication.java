@@ -9,9 +9,9 @@ public class SpringBeanLifecycleApplication {
     @Test
     public void test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("Bean-lifecycle.xml");
-        Book book = (Book) context.getBean("book");
+        Student book = context.getBean(Student.class);
         //Bean的使用
-        System.out.println("Book name = " + book.getBookName());
+        System.out.println("Book name = " + book.student);
         //关闭容器
         ((AbstractApplicationContext) context).close();
     }
