@@ -29,7 +29,7 @@ class MyCache {
 
     public void get(String key) {
         try {
-            rwl.readLock().lock();
+//            rwl.readLock().lock();
             System.out.println(Thread.currentThread().getName() + "\t正在读取");
             try {
                 TimeUnit.SECONDS.sleep(5);
