@@ -18,6 +18,7 @@ public enum CountEnum {
                 return element;
             }
         }
+        return null;
     }
 
     private int getRetCode() {

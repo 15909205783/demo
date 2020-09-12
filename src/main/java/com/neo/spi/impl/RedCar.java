@@ -5,7 +5,7 @@ import com.neo.spi.api.CarInterface;
 public class RedCar implements CarInterface {
 
     @Override
-    public void getColor() {
+    public void hello() {
         System.out.println("Red");
     }
 }
