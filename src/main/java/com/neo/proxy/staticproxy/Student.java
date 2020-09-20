@@ -15,4 +15,9 @@ public class Student implements Person {
     public void giveMoney(BigDecimal amount) {
         System.out.println(name + "上交" + amount + "班费");
     }
+
+    @Override
+    public void increatMoney(BigDecimal prc) {
+        System.out.println("6666:::"+prc);
+    }
 }

@@ -15,6 +15,7 @@ public class Test {
         Person stuProxy = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(), new Class<?>[]{Person.class}, stuHandler);
         //代理执行上交班费的方法
         stuProxy.giveMoney(new BigDecimal(888));
+        stuProxy.increatMoney(new BigDecimal(9));
     }
 
 

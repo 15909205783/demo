@@ -15,4 +15,9 @@ public class StuProxy implements Person {
     public void giveMoney(BigDecimal amount) {
         stu.giveMoney(amount);
     }
+
+    @Override
+    public void increatMoney(BigDecimal prc) {
+        stu.increatMoney(prc);
+    }
 }
