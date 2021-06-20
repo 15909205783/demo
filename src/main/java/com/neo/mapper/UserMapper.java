@@ -1,11 +1,13 @@
 package com.neo.mapper;
 
 import com.neo.model.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Mapper
 public interface UserMapper {
     List<User> getAll();
 

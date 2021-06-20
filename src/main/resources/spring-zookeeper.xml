@@ -13,7 +13,7 @@
         <constructor-arg index="2" value="5000"/>
         <constructor-arg index="3" ref="retryPolicy"/>
     </bean>
-    <bean id="zookeeperClient" class="com.neo.zk.ZookeeperClient">
-        <constructor-arg index="0" ref="client"/>
-    </bean>
+<!--    <bean id="zookeeperClient" class="com.neo.zk.ZookeeperClient">-->
+<!--        <constructor-arg index="0" ref="client"/>-->
+<!--    </bean>-->
 </beans>
