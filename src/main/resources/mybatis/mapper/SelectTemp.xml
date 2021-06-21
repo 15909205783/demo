@@ -29,4 +29,9 @@
         VALUES
           (#{userName},#{passWord},#{userSex})
     </insert>
+    <select id="selectById" resultType="com.neo.model.User">
+        select
+        id,userName,passWord
+        FROM users where id = #{id}
+    </select>
 </mapper>

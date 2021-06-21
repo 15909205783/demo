@@ -9,14 +9,10 @@ public class User implements Serializable {
     private Long id;
     private String userName;
     private String passWord;
-    private UserSexEnum userSex;
-    private String nickName;
 
-    public User(String userName, String passWord, UserSexEnum userSex) {
-        super();
-        this.passWord = passWord;
+    public User(String userName, String passWord) {
         this.userName = userName;
-        this.userSex = userSex;
+        this.passWord = passWord;
     }
 
     public Long getId() {
@@ -41,27 +37,5 @@ public class User implements Serializable {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
-    }
-
-    public UserSexEnum getUserSex() {
-        return userSex;
-    }
-
-    public void setUserSex(UserSexEnum userSex) {
-        this.userSex = userSex;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "userName " + this.userName + ", pasword " + this.passWord + "sex " + userSex.name();
     }
 }
