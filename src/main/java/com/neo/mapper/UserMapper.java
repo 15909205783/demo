@@ -2,6 +2,7 @@ package com.neo.mapper;
 
 import com.neo.model.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,9 @@ public interface UserMapper {
 
     User getOne(Long id);
 
-    User selectById(Integer id);
+    User selectById(@Param("id") Integer id);
+    User selectById2();
+    User selectByIdOrName(@Param("id") Integer id, @Param("name") String name);
 
     void insert(User user);
 

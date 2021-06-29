@@ -17,7 +17,7 @@
     <sql id="Base_Column_List">
         id, userName, passWord, user_sex, nick_name
     </sql>
-    <select id="getAll" resultMap="BaseResultMap">
+    <select id="getAll" resultMap="BaseResultMap" statementType="PREPARED">
         select
         <include refid="Base_Column_List"/>
         FROM users
@@ -29,9 +29,19 @@
         VALUES
           (#{userName},#{passWord},#{userSex})
     </insert>
-    <select id="selectById" resultType="com.neo.model.User">
+    <select id="selectById" resultType="com.neo.model.User" statementType="PREPARED">
         select
         id,userName,passWord
         FROM users where id = #{id}
+    </select>
+    <select id="selectById2" resultType="com.neo.model.User" statementType="PREPARED">
+        select
+        id,userName,passWord
+        FROM users
+    </select>
+    <select id="selectByIdOrName" resultType="com.neo.model.User" statementType="PREPARED">
+        select
+        id,userName,passWord
+        FROM users where id = #{id} and userName=#{name}
     </select>
 </mapper>
