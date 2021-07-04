@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
  * @author yangwuhai
  * @since 2021-07-02
  */
-@Component("user")
 public class TestBeanFactory implements FactoryBean {
     @Override
     public Object getObject() throws Exception {

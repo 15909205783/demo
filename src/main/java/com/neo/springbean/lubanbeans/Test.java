@@ -56,16 +56,19 @@ public class Test {
          * 利用spring的beanFactory生成一个bean对象
          * BeanDefinition可以注册一个bean对象也可以注册一个beanDefinition
          */
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-//        beanFactory.registerSingleton("user",new User());
-        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
-        beanDefinition.setBeanClass(User.class);
-        beanFactory.registerBeanDefinition("user",beanDefinition);
-        System.out.println(ac.getEnvironment().getPropertySources());
-        System.out.println(ac.getResource("/Users/codemao/workProjects/personal/demo/src/main/resources/applicationContext.xml"));
-
-        User user = beanFactory.getBean("user", User.class);
-        System.out.println(user);
-
+//        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+////        beanFactory.registerSingleton("user",new User());
+//        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
+//        beanDefinition.setBeanClass(User.class);
+//        beanFactory.registerBeanDefinition("user",beanDefinition);
+//        System.out.println(ac.getEnvironment().getPropertySources());
+//        System.out.println(ac.getResource("/Users/codemao/workProjects/personal/demo/src/main/resources/applicationContext.xml"));
+//
+//        User user = beanFactory.getBean("user", User.class);
+//        System.out.println(user);
+//        UserService userService = ac.getBean("userService", UserService.class);
+//        userService.test();
+//        System.out.println(userService.test());
+        UserService userService = ac.getBean("userService", UserService.class);
     }
 }

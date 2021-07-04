@@ -1,5 +1,6 @@
 package com.neo.springbean.lubanbeans;
 
+import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
@@ -10,6 +11,7 @@ import javax.annotation.PostConstruct;
  * @author yangwuhai
  * @since 2021-07-02
  */
+@Component
 public class User {
     private String name;
     private String email;

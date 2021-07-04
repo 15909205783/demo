@@ -12,6 +12,6 @@ import org.springframework.context.annotation.Configuration;
  * @since 2021-06-30
  */
 @Configuration
-@ComponentScan("com.neo.springbean")
+@ComponentScan("com.neo.springbean.lubanbeans")
 public class App {
 }
