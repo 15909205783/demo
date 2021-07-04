@@ -2,9 +2,11 @@ package com.neo.springbean.lubanbeans;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
@@ -18,18 +20,15 @@ import java.lang.reflect.Field;
  * @since 2021-07-04
  */
 @Component
-public class LubanBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
-    @Override
-    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+public class LubanBeanPostProcessor implements  InitializingBean {
 
-        return null;
+    @PostConstruct
+    public void xxx(){
+        System.out.println("xxxxxx");
     }
 
     @Override
-    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        if (beanName.equals("userService")){
-            System.out.println("实例化后");
-        }
-        return true;
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("初始化");
     }
 }
