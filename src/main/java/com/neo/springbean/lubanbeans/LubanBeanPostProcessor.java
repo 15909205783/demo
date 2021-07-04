@@ -10,6 +10,9 @@ import javax.annotation.PostConstruct;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * <p>
@@ -20,15 +23,39 @@ import java.lang.reflect.Field;
  * @since 2021-07-04
  */
 @Component
-public class LubanBeanPostProcessor implements  InitializingBean {
+public class LubanBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
-    @PostConstruct
-    public void xxx(){
-        System.out.println("xxxxxx");
+
+    @Override
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+        if (beanName.equals("userService")) {
+            System.out.println("实例化前");
+        }
+        return null;
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("初始化");
+    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        System.out.println("实例化后");
+        return false;
     }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if (beanName.equals("userService")) {
+            System.out.println("初始化后");
+            Object o = Proxy.newProxyInstance(bean.getClass().getClassLoader(), bean.getClass().getInterfaces(), new InvocationHandler() {
+                @Override
+                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                    System.out.println("代理逻辑");
+                    method.invoke(bean, args);
+                    return null;
+                }
+            });
+            return o;
+        }
+        return bean;
+    }
+
+
 }

@@ -69,6 +69,7 @@ public class Test {
 //        UserService userService = ac.getBean("userService", UserService.class);
 //        userService.test();
 //        System.out.println(userService.test());
-        UserService userService = ac.getBean("userService", UserService.class);
+      UserInterFace userInterFace= (UserInterFace) ac.getBean("userService");
+        userInterFace.test();
     }
 }
