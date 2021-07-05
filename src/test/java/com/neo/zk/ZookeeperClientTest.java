@@ -15,7 +15,7 @@ public class ZookeeperClientTest {
 
     @Test
     public void Test() {
-        String patch = "/spring5/test";
+        String patch = "/demo/test";
         zookeeperClient.save(patch, "Spring 5 zookeeper Test", CreateMode.PERSISTENT);
         String data = zookeeperClient.query(patch);
         System.out.println("data=" + data);
