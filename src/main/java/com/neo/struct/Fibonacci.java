@@ -2,7 +2,7 @@ package com.neo.struct;
 
 /**
  * <p>
- * Description:
+ * Description: 求N的斐波那契数列
  * </p>
  *
  * @author yangwuhai
