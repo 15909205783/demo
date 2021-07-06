@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.neo.mapper.UserMapper">
     <!--<cache type="com.neo.cache.MybatisRedisCache">-->
-    <!--<property name="eviction" value="LRU" />-->
-    <!--<property name="flushInterval" value="6000000" />-->
-    <!--<property name="size" value="1024" />-->
-    <!--<property name="readOnly" value="false" />-->
+        <!--<property name="eviction" value="LRU"/>-->
+        <!--<property name="flushInterval" value="6000000"/>-->
+        <!--<property name="size" value="1024"/>-->
+        <!--<property name="readOnly" value="false"/>-->
     <!--</cache>-->
     <resultMap id="BaseResultMap" type="com.neo.model.User">
         <id column="id" property="id"/>
@@ -29,7 +29,7 @@
         VALUES
           (#{userName},#{passWord},#{userSex})
     </insert>
-    <select id="selectById" resultType="com.neo.model.User" statementType="PREPARED">
+    <select id="selectById" resultType="com.neo.model.User" statementType="PREPARED" flushCache="true">
         select
         id,userName,passWord
         FROM users where id = #{id}
@@ -44,4 +44,8 @@
         id,userName,passWord
         FROM users where id = #{id} and userName=#{name}
     </select>
+
+    <update id="setName">
+        UPDATE users set userName =#{arg1} WHERE id = #{arg0}
+    </update>
 </mapper>

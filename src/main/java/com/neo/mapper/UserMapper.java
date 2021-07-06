@@ -16,13 +16,18 @@ public interface UserMapper {
     User getOne(Long id);
 
     User selectById(@Param("id") Integer id);
+
     User selectById2();
+
     User selectByIdOrName(@Param("id") Integer id, @Param("name") String name);
 
     void insert(User user);
 
+    void setName(Integer id, String name);
+
     void update(User user);
 
     void delete(Long id);
+
 
 }
